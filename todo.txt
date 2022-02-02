@@ -1,0 +1,2 @@
+Document the methods in the interface rather than the class
+Migrate to generics instead of Strings
