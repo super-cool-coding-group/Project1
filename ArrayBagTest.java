@@ -8,7 +8,7 @@ import java.util.Arrays;
  *
  *
  * @author George Matta
- * @version 1.0
+ * @version 1.1
  */
 public class ArrayBagTest{
     /**

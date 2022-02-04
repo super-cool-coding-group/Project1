@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Each method is documented separately.
  *
  * @author George Matta
- * @version 1.0
+ * @version 1.1
  */
 public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>>{
 
@@ -18,7 +18,7 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
     private ArrayList<E> originalList;
 
     /**
-     * Creates a new ResizeableArrayBag given an Arraylist of Es.
+     * Creates a new ResizeableArrayBag given an Arraylist.
      * @param originalList The list we are using to create a bag.
      */
     public ResizeableArrayBag(ArrayList<E> originalList){
@@ -26,7 +26,7 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
     }
 
     /**
-     * Finds the Union of two Bags.
+     * Finds the Union of two ResizeableArrayBags.
      *
      * A union is a collection which consists of all of the contents of the two collections that make it up.
      *
@@ -51,7 +51,7 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
     }
 
     /**
-     * Finds the Intersection of two Bags.
+     * Finds the Intersection of two ResizeableArrayBags.
      *
      * An intersection is a collection which consists of the items that exist in both bags that make it up.
      *
@@ -80,7 +80,7 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
     }
 
     /**
-     * Finds the Difference of two Bags.
+     * Finds the Difference of two ResizeableArrayBags.
      *
      * A difference is a collection which consists of the items that exist in this bag but not the other bag.
      *
@@ -112,15 +112,15 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
     /**
      * A getter method to retrieve the original ArrayList.
      *
-     * @return An ArrayList of Es of the original ArrayList.
+     * @return This originalList.
      */
     public ArrayList<E> getOriginalList(){
         return this.originalList;
     }
 
     /**
-     * A setter method which changes the contents of the original bag.
-     * This setter also returns the new bag.
+     * A setter method which changes the contents of the original ResizeableArrayBag.
+     * This setter also returns the new bag object.
      *
      * @param toSet The ArrayList we are setting our bag to
      * @return The ArrayList we set our bag to
@@ -132,9 +132,9 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
     }
 
     /**
-     * Overriding the basic toE method so we can read the Bags that we create
+     * Overriding the default toString method so we can read the ResizeableArrayBags that we create.
      *
-     * We sort the original list for readability, but the order of the elements does not matter in a bag
+     * We sort the original list for readability, but the order of the elements does not matter in a bag.
      *
      * @return A String of this sorted ArrayList
      */
