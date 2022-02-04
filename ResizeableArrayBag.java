@@ -10,18 +10,18 @@ import java.util.ArrayList;
  * @author George Matta
  * @version 1.0
  */
-public class ResizeableArrayBag implements BagInterface{
+public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>>{
 
     /**
      * An ArrayList which is the original bag that we have.
      */
-    private ArrayList<String> originalList;
+    private ArrayList<E> originalList;
 
     /**
-     * Creates a new ResizeableArrayBag given an Arraylist of Strings.
+     * Creates a new ResizeableArrayBag given an Arraylist of Es.
      * @param originalList The list we are using to create a bag.
      */
-    public ResizeableArrayBag(ArrayList<String> originalList){
+    public ResizeableArrayBag(ArrayList<E> originalList){
         this.originalList = originalList;
     }
 
@@ -34,20 +34,20 @@ public class ResizeableArrayBag implements BagInterface{
      * @return A new ResizeableArrayBag object of the two bags unionized.
      */
     @Override
-    public ResizeableArrayBag union(ResizeableArrayBag other){
-        ArrayList<String> unionized = new ArrayList<String>(); // An empty list for the union of the two bags
+    public ResizeableArrayBag<E> union(ResizeableArrayBag<E> other){
+        ArrayList<E> unionized = new ArrayList<E>(); // An empty list for the union of the two bags
 
         // We go through each element in our list and add it to the union list
-        for(String t : this.getOriginalList()){
+        for(E t : this.getOriginalList()){
             unionized.add(t);
         }
         // We go through each element in the other list and add it to the union list
-        for(String o : other.getOriginalList()){
+        for(E o : other.getOriginalList()){
             unionized.add(o);
         }
 
         // Simply create a ResizeableBagArray from our union list and return it
-        return new ResizeableArrayBag(unionized);
+        return new ResizeableArrayBag<E>(unionized);
     }
 
     /**
@@ -59,16 +59,16 @@ public class ResizeableArrayBag implements BagInterface{
      * @return A new ResizeableArrayBag object of the two bags' intersection.
      */
     @Override
-    public ResizeableArrayBag intersection(ResizeableArrayBag other){
-        ArrayList<String> intersected = new ArrayList<String>(); // An empty list for the intersecion of the two bags
+    public ResizeableArrayBag<E> intersection(ResizeableArrayBag<E> other){
+        ArrayList<E> intersected = new ArrayList<E>(); // An empty list for the intersecion of the two bags
         // Since we can't affect the contents of either bag, we copy the other bag's content
         // Copying the bag allows us to account for duplicates between our bags
         // If the value X is in Bag1 5 times, and is in Bag2 2 times, then it is in the
         // intersection bag 2 times (the lower of the two counts)
-        ArrayList<String> otherCopy = new ArrayList<String>(other.getOriginalList());
+        ArrayList<E> otherCopy = new ArrayList<E>(other.getOriginalList());
 
         // We go through each item in our list
-        for(String t : this.getOriginalList()){
+        for(E t : this.getOriginalList()){
             // If the copied list contains the item, we remove it and add it to the intersection list
             if (otherCopy.remove(t)){
                 intersected.add(t);
@@ -76,7 +76,7 @@ public class ResizeableArrayBag implements BagInterface{
         }
 
         // Simply create a ResizeableBagArray from our intersection list and return it
-        return new ResizeableArrayBag(intersected);
+        return new ResizeableArrayBag<E>(intersected);
     }
 
     /**
@@ -88,16 +88,16 @@ public class ResizeableArrayBag implements BagInterface{
      * @return A new ResizeableArrayBag object of the two bags' difference.
      */
     @Override
-    public ResizeableArrayBag difference(ResizeableArrayBag other){
-        ArrayList<String> diff = new ArrayList<String>(); // An empty list for the difference of the two bags
+    public ResizeableArrayBag<E> difference(ResizeableArrayBag<E> other){
+        ArrayList<E> diff = new ArrayList<E>(); // An empty list for the difference of the two bags
         // Since we can't affect the contents of either bag, we copy the other bag's content
         // Copying the bag allows us to account for duplicates between our bags
         // If the value X is in Bag1 5 times, and is in Bag2 2 times, then it is in the
         // difference bag 3 times (the difference of the two counts)
-        ArrayList<String> otherCopy = new ArrayList<String>(other.getOriginalList());
+        ArrayList<E> otherCopy = new ArrayList<E>(other.getOriginalList());
 
         // We go through each item in our list
-        for(String t : this.getOriginalList()){
+        for(E t : this.getOriginalList()){
             // If the copied list does not contain the item, we add it to our difference.
             // If the item was in the list, we remove it
             if (!otherCopy.remove(t)){
@@ -106,15 +106,15 @@ public class ResizeableArrayBag implements BagInterface{
         }
 
         // Simply create a ResizeableBagArray from our difference list and return it
-        return new ResizeableArrayBag(diff);
+        return new ResizeableArrayBag<E>(diff);
     }
 
     /**
      * A getter method to retrieve the original ArrayList.
      *
-     * @return An ArrayList of Strings of the original ArrayList.
+     * @return An ArrayList of Es of the original ArrayList.
      */
-    public ArrayList<String> getOriginalList(){
+    public ArrayList<E> getOriginalList(){
         return this.originalList;
     }
 
@@ -125,21 +125,21 @@ public class ResizeableArrayBag implements BagInterface{
      * @param toSet The ArrayList we are setting our bag to
      * @return The ArrayList we set our bag to
      */
-    public ArrayList<String> setOriginalList(ArrayList<String> toSet){
+    public ArrayList<E> setOriginalList(ArrayList<E> toSet){
         this.originalList = toSet;
 
         return toSet;
     }
 
     /**
-     * Overriding the basic toString method so we can read the Bags that we create
+     * Overriding the basic toE method so we can read the Bags that we create
      *
      * We sort the original list for readability, but the order of the elements does not matter in a bag
      *
      * @return A String of this sorted ArrayList
      */
     public String toString(){
-        ArrayList<String> sortedlist = getOriginalList();
+        ArrayList<E> sortedlist = getOriginalList();
         sortedlist.sort(null);
 
         return sortedlist.toString();

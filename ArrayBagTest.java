@@ -22,8 +22,8 @@ public class ArrayBagTest{
         ArrayList<String> listOne = new ArrayList<>(Arrays.asList("a", "b", "c")); // The first list that we create a bag from
         ArrayList<String> listTwo = new ArrayList<>(Arrays.asList("b", "b", "d", "e")); // The second list that we create a bag from
 
-        ResizeableArrayBag bagOne = new ResizeableArrayBag(listOne); // Our first bag
-        ResizeableArrayBag bagTwo = new ResizeableArrayBag(listTwo); // Our second bag
+        ResizeableArrayBag<String> bagOne = new ResizeableArrayBag<String>(listOne); // Our first bag
+        ResizeableArrayBag<String> bagTwo = new ResizeableArrayBag<String>(listTwo); // Our second bag
 
         // Order is unimportant
         // Union

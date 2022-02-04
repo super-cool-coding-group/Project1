@@ -5,10 +5,10 @@
  * @author George Matta
  * @version 1.0
  */
-public interface BagInterface{
+public interface BagInterface<T>{
 
-    public ResizeableArrayBag union(ResizeableArrayBag other);
-    public ResizeableArrayBag intersection(ResizeableArrayBag other);
-    public ResizeableArrayBag difference(ResizeableArrayBag other);
+    public T union(T other);
+    public T intersection(T other);
+    public T difference(T other);
 
 }
