@@ -1,6 +1,3 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-
 /**
  * This is the where we test the functionality of our ResizeableArrayBag class.
  *
@@ -19,11 +16,13 @@ public class ArrayBagTest{
      * @param args
      */
     public static void main(String[] args){
-        ArrayList<String> listOne = new ArrayList<>(Arrays.asList("a", "b", "c")); // The first list that we create a bag from
-        ArrayList<String> listTwo = new ArrayList<>(Arrays.asList("b", "b", "d", "e")); // The second list that we create a bag from
+        String[] arrayOne = {"a", "b", "c"}; // The first list that we create a bag from
+        String[] arrayTwo = {"b", "b", "d", "e"}; // The second list that we create a bag from
 
-        ResizeableArrayBag<String> bagOne = new ResizeableArrayBag<String>(listOne); // Our first bag
-        ResizeableArrayBag<String> bagTwo = new ResizeableArrayBag<String>(listTwo); // Our second bag
+        ResizeableArrayBag<String> bagOne = new ResizeableArrayBag<String>(arrayOne); // Our first bag
+        ResizeableArrayBag<String> bagTwo = new ResizeableArrayBag<String>(arrayTwo); // Our second bag
+
+        checkStuff(bagOne);
 
         // Order is unimportant
         // Union
@@ -40,9 +39,23 @@ public class ArrayBagTest{
         System.out.println("\nDifference");
         System.out.println(bagOne.difference(bagTwo)); // a c
         System.out.println(bagTwo.difference(bagOne)); // b d e
+    }
 
-
-
+    public static void checkStuff(ResizeableArrayBag<String> bag){
+        System.out.println(bag);
+        System.out.println(bag.getNumOfEntries());
+        bag.add("1");
+        System.out.println(bag);
+        System.out.println(bag.getNumOfEntries());
+        bag.add("1");
+        System.out.println(bag);
+        System.out.println(bag.getNumOfEntries());
+        bag.remove("1");
+        System.out.println(bag);
+        System.out.println(bag.getNumOfEntries());
+        bag.remove("1");
+        System.out.println(bag);
+        System.out.println(bag.getNumOfEntries());
     }
 
 }
