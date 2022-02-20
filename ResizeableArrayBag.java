@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * Each method is documented separately.
  *
  * @author George Matta
- * @version 1.1
+ * @version 2.0
  */
 public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>>{
 
