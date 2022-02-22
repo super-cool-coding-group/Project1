@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @author George Matta
  * @version 2.0
  */
-public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>>{
+public class ResizeableArrayBag<E> implements BagInterface<E>{
 
     /**
      * The default capacity of any bag
@@ -86,20 +86,21 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
      * @return A new ResizeableArrayBag object of the two bags unionized.
      */
     @Override
-    public ResizeableArrayBag<E> union(ResizeableArrayBag<E> other){
+    public BagInterface<E> union(BagInterface<E> other){
+        ResizeableArrayBag<E> otherBag = (ResizeableArrayBag<E>) other;
         // Calculate the length of two bag unionized together.
         // We subtract two because index starts at 0, but numOfEntries starts at 1
-        int unionLength = this.numOfEntries + other.numOfEntries - 2;
+        int unionLength = this.numOfEntries + otherBag.numOfEntries - 2;
         // We create a ResizeableArrayBag from that bag so that we can add to it
         ResizeableArrayBag<E> unionized = new ResizeableArrayBag<E>(unionLength);
 
         // We go through each element in our list and add it to the union list
         for(int t = 0; t < this.numOfEntries; t++){
-            unionized.add(bag[t]);
+            unionized.add(this.bag[t]);
         }
         // We go through each element in the other list and add it to the union list
-        for(int o = 0; o < other.numOfEntries; o++){
-            unionized.add(other.bag[o]);
+        for(int o = 0; o < otherBag.numOfEntries; o++){
+            unionized.add(otherBag.bag[o]);
         }
 
         // Return the final ResizeableArrayBag
@@ -115,16 +116,15 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
      * @return A new ResizeableArrayBag object of the two bags' intersection.
      */
     @Override
-    @SuppressWarnings("unchecked")
-    public ResizeableArrayBag<E> intersection(ResizeableArrayBag<E> other){
-        int maxEntries = getMaxEntries(this, other);
+    public BagInterface<E> intersection(BagInterface<E> other){
+        ResizeableArrayBag<E> otherBag = (ResizeableArrayBag<E>) other;
         // An empty list for the intersecion of the two bags
-        ResizeableArrayBag<E> intersected = new ResizeableArrayBag<E>(maxEntries - 1);
+        ResizeableArrayBag<E> intersected = new ResizeableArrayBag<E>();
         // Since we can't affect the contents of either bag, we copy the other bag's content
         // Copying the bag allows us to account for duplicates between our bags
         // If the value X is in Bag1 5 times, and is in Bag2 2 times, then it is in the
         // intersection bag 2 times (the lower of the two counts)
-        ResizeableArrayBag<E> otherCopy = new ResizeableArrayBag<E>(other);
+        ResizeableArrayBag<E> otherCopy = new ResizeableArrayBag<E>(otherBag);
 
         // We go through each item in our list
         E currItem;
@@ -151,16 +151,15 @@ public class ResizeableArrayBag<E> implements BagInterface<ResizeableArrayBag<E>
      * @return A new ResizeableArrayBag object of the two bags' difference.
      */
     @Override
-    @SuppressWarnings("unchecked")
-    public ResizeableArrayBag<E> difference(ResizeableArrayBag<E> other){
-        int maxEntries = getMaxEntries(this, other);
+    public BagInterface<E> difference(BagInterface<E> other){
+        ResizeableArrayBag<E> otherBag = (ResizeableArrayBag<E>) other;
         // An empty list for the difference of the two bags
-        ResizeableArrayBag<E> diff = new ResizeableArrayBag<E>(maxEntries - 1);
+        ResizeableArrayBag<E> diff = new ResizeableArrayBag<E>();
         // Since we can't affect the contents of either bag, we copy the other bag's content
         // Copying the bag allows us to account for duplicates between our bags
         // If the value X is in Bag1 5 times, and is in Bag2 2 times, then it is in the
         // difference bag 3 times (the difference of the two counts)
-        ResizeableArrayBag<E> otherCopy = new ResizeableArrayBag<E>(other);
+        ResizeableArrayBag<E> otherCopy = new ResizeableArrayBag<E>(otherBag);
 
         // We go through each item in our list
         E currItem;

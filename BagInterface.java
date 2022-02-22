@@ -15,7 +15,7 @@ public interface BagInterface<T>{
      * @param other The bag we are adding on to this bag.
      * @return A new bag (T) object of the two bags unionized.
      */
-    public T union(T other);
+    public BagInterface<T> union(BagInterface<T> other);
 
     /**
      * Finds the Intersection of two bags (T).
@@ -25,7 +25,7 @@ public interface BagInterface<T>{
      * @param other The bag we are intersecting with this bag.
      * @return A new bag (T) object of the two bags' intersection.
      */
-    public T intersection(T other);
+    public BagInterface<T> intersection(BagInterface<T> other);
 
     /**
      * Finds the Difference of two bags (T).
@@ -35,6 +35,6 @@ public interface BagInterface<T>{
      * @param other The bag we are subtracting from this bag.
      * @return A new bag (T) object of the two bags' difference.
      */
-    public T difference(T other);
+    public BagInterface<T> difference(BagInterface<T> other);
 
 }
