@@ -1,28 +1,70 @@
-import java.util.ArrayList;
-import java.util.Arrays;
+import org.junit.Test;
 
 public class LinkedBagTest {
-    
-    public static void main(String[] args) {
+
+    @Test
+    public void testAdd() {
         
-        ArrayList<String> listOne = new ArrayList<>(Arrays.asList("a", "b", "c")); // The first list that we create a bag from
-        ArrayList<String> listTwo = new ArrayList<>(Arrays.asList("b", "b", "d", "e")); // The second list that we create a bag from
-
-        LinkedBag<String> bagOne = new LinkedBag<String>(listOne); // Our first bag
-        LinkedBag<String> bagTwo = new LinkedBag<String>(listTwo); // Our second bag
-
-        System.out.println("Union");
-        System.out.println(bagOne.union(bagTwo)); // a b b b c d e
-        System.out.println(bagTwo.union(bagOne)); // a b b b c d e
-
-        // Intersection
-        System.out.println("\nIntersection");
-        System.out.println(bagOne.intersection(bagTwo)); // b
-        System.out.println(bagTwo.intersection(bagOne)); // b
-
-        // Difference
-        System.out.println("\nDifference");
-        System.out.println(bagOne.difference(bagTwo)); // a c
-        System.out.println(bagTwo.difference(bagOne)); // b d e
     }
+
+    @Test
+    public void testClear() {
+        
+    }
+
+    @Test
+    public void testContains() {
+        
+    }
+
+    @Test
+    public void testDifference() {
+        
+    }
+
+    @Test
+    public void testGetCurrentSize() {
+        
+    }
+
+    @Test
+    public void testGetFrequencyOf() {
+        
+    }
+
+    @Test
+    public void testIntersection() {
+        
+    }
+
+    @Test
+    public void testIsEmpty() {
+        
+    }
+
+    @Test
+    public void testRemove() {
+        
+    }
+
+    @Test
+    public void testRemove2() {
+        
+    }
+
+    @Test
+    public void testToArray() {
+        
+    }
+
+    @Test
+    public void testToString() {
+        
+    }
+
+    @Test
+    public void testUnion() {
+        
+    }
+
 }
