@@ -11,7 +11,6 @@ public class LinkedBagTest {
         LinkedBag<String> bagOne = new LinkedBag<String>(listOne); // Our first bag
         LinkedBag<String> bagTwo = new LinkedBag<String>(listTwo); // Our second bag
 
-
         System.out.println("Union");
         System.out.println(bagOne.union(bagTwo)); // a b b b c d e
         System.out.println(bagTwo.union(bagOne)); // a b b b c d e
