@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Currency;
 
 class Node<T> {
     T data;
@@ -59,7 +58,7 @@ public class LinkedBag<T> implements BagInterface<T> {
 
     /**
      * Finds a given entry within this bag.
-     * 
+     *
      * @param anEntry The entry to search
      * @return A reference to the node, otherwise null
      */
