@@ -3,6 +3,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import org.junit.Test;
+/**
+ * This is the where we test the functionality of our LinkedBag class.
+ * We have a main method where we run the Union, Intersection, and Difference methods.
+ * @author Angelica Arteaga
+ * @version 1.2
+ */
 
 public class LinkedBagTest {
 
