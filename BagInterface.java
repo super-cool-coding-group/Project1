@@ -3,8 +3,8 @@
  * Difference methods.
  *
  *
- * @author George Matta
- * @version 1.1
+ * @author George Matta, Pierlorenzo Peruzzo
+ * @version 1.2
  */
 public interface BagInterface<T> {
 

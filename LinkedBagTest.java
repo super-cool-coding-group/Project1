@@ -6,7 +6,7 @@ import org.junit.Test;
 /**
  * This is the where we test the functionality of our LinkedBag class.
  * We have a main method where we run the Union, Intersection, and Difference methods.
- * @author Angelica Arteaga
+ * @author Angelica Arteaga, Pierlorenzo Peruzzo
  * @version 1.2
  */
 
