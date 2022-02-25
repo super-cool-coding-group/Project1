@@ -4,6 +4,7 @@ import java.util.Arrays;
 public class bagDriver {
 
     public static void main(String[] args) {
+
         String[] arrayOne = { "a", "b", "c" }; // The first list that we create a bag from
         String[] arrayTwo = { "b", "b", "d", "e" }; // The second list that we create a bag from
 
