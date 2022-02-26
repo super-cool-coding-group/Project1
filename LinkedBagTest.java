@@ -30,7 +30,7 @@ public class LinkedBagTest {
 
     @Test //Done
     public void testToArray() {
-        testBag.add('c');
+        testBag.add('c'); 
         testBag.add('b');
         testBag.add('a');
         Character[] expected = {'a', 'b', 'c'};
@@ -75,23 +75,28 @@ public class LinkedBagTest {
     }
 
     @Test //Done
+    // without argument
     public void testRemove() {
+        testBag.add('a');
+        testBag.add('b');
+        testBag.remove();
+        assertFalse(testBag.contains('b'));
+    }
+
+    @Test //Done 
+    // with argument
+    public void testRemove2() {
         testBag.add('a');
         assertTrue(testBag.contains('a')); 
         testBag.remove('a');
         assertFalse(testBag.contains('a')); 
     }
-
-    @Test //Work on remove 2
-    public void testRemove2() {
-        
-    }
-    @Test //Fix toString test
+    @Test //Done
     public void testToString() {
-        testBag.add('a');
         testBag.add('b');
-        testBag.add('c');
-        System.out.println(testBag.toString());
+        testBag.add('a');
+        String expected = "[a, b]"; 
+        assertEquals(expected, testBag.toString());
     }
     
     @Test //Done
