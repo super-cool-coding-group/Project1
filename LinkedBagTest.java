@@ -15,20 +15,20 @@ public class LinkedBagTest {
     BagInterface<Character> testBag = new LinkedBag<Character>();
     BagInterface<Character> testBag2 = new LinkedBag<Character>();
 
-    @Test //Done
+    @Test 
     public void testAdd() {
         testBag.add('a');
         assertTrue(testBag.contains('a'));
     }
 
-    @Test //Done
+    @Test 
     public void testContains() {
         testBag.add('a');
         assertTrue(testBag.contains('a'));
         assertFalse(testBag.contains('d'));
     }
 
-    @Test //Done
+    @Test 
     public void testToArray() {
         testBag.add('c'); 
         testBag.add('b');
@@ -37,18 +37,15 @@ public class LinkedBagTest {
         assertArrayEquals(expected, testBag.toArray());
     }
 
-    @Test //Done
+    @Test 
     public void testClear() {
         testBag.add('a');
         testBag.add('b');
-        int expected = 2;
-        assertEquals(expected, testBag.getCurrentSize());
         testBag.clear();
-        int expected2 = 0;
-        assertEquals(expected2, testBag.getCurrentSize());
+        assertEquals(0, testBag.getCurrentSize());
     }
 
-    @Test //Done
+    @Test 
     public void testGetCurrentSize() {
         testBag.add('a');
         testBag.add('b');
@@ -56,7 +53,7 @@ public class LinkedBagTest {
         assertEquals(expected, testBag.getCurrentSize());
     }
 
-    @Test //Done
+    @Test 
     public void testGetFrequencyOf() {
         testBag.add('a');
         testBag.add('a');
@@ -67,15 +64,15 @@ public class LinkedBagTest {
         assertEquals(expected2, testBag.getFrequencyOf('b'));
     }
 
-    @Test //Done
+    @Test 
     public void testIsEmpty() {
         assertTrue(testBag.isEmpty());
         testBag.add('a');
         assertFalse(testBag.isEmpty());
     }
 
-    @Test //Done
-    // without argument
+    @Test 
+    // remove method w/o parameters
     public void testRemove() {
         testBag.add('a');
         testBag.add('b');
@@ -83,15 +80,15 @@ public class LinkedBagTest {
         assertFalse(testBag.contains('b'));
     }
 
-    @Test //Done 
-    // with argument
+    @Test 
+    // remove method w/ parameters
     public void testRemove2() {
         testBag.add('a');
-        assertTrue(testBag.contains('a')); 
         testBag.remove('a');
         assertFalse(testBag.contains('a')); 
     }
-    @Test //Done
+
+    @Test 
     public void testToString() {
         testBag.add('b');
         testBag.add('a');
@@ -99,7 +96,7 @@ public class LinkedBagTest {
         assertEquals(expected, testBag.toString());
     }
     
-    @Test //Done
+    @Test 
     public void testUnion() {
         testBag.add('a');
         testBag.add('b');
@@ -110,10 +107,9 @@ public class LinkedBagTest {
         assertTrue(outcome.contains('b'));
         assertTrue(outcome.contains('c'));
         assertTrue(outcome.contains('d'));
-        //System.out.println(testBag.union(testBag2)); 
     }
 
-    @Test //Done
+    @Test 
     public void testDifference() {
         testBag.add('a');
         testBag.add('b');
@@ -125,11 +121,9 @@ public class LinkedBagTest {
         assertTrue(outcome2.contains('c'));
         assertFalse(outcome.contains('b'));
         assertFalse(outcome2.contains('b'));
-        //System.out.println(testBag.difference(testBag2));
-        //System.out.println(testBag2.difference(testBag));
     }
 
-    @Test //Done
+    @Test 
     public void testIntersection() {
         testBag.add('a');
         testBag.add('b');
@@ -138,7 +132,7 @@ public class LinkedBagTest {
         BagInterface<Character> outcome = testBag.intersection(testBag2);
         assertTrue(outcome.contains('b'));
         assertFalse(outcome.contains('a'));
-        //System.out.println(testBag.intersection(testBag2));
+        assertFalse(outcome.contains('c'));
     }
 
 }
