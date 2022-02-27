@@ -7,7 +7,8 @@ import org.junit.Test;
 /**
  * This is the where we test the functionality of our LinkedBag class.
  * We have a main method where we run the Union, Intersection, and Difference methods.
- * @author Angelica Arteaga, Pierlorenzo Peruzzo
+ * @author Pierlorenzo Peruzzo
+ * @author Angelica Arteaga
  * @version 2.0
  */
 
@@ -18,7 +19,7 @@ public class LinkedBagTest {
     BagInterface<Character> outcome;
     BagInterface<Character> outcome2;
 
-    @Test 
+    @Test
     //initialized with the contents of another bag
     public void testLinkedBag(){
         testBag.add('a');
@@ -30,7 +31,7 @@ public class LinkedBagTest {
         assertEquals(expectedSize, testBag2.getCurrentSize());
     }
 
-    @Test 
+    @Test
     // initialized with the contents of an ArrayList
     public void testLinkedBag2(){
         ArrayList<Character> testArray = new ArrayList<Character>();
@@ -43,29 +44,29 @@ public class LinkedBagTest {
         assertEquals(expectedSize, testBag.getCurrentSize());
     }
 
-    @Test 
+    @Test
     public void testAdd() {
         testBag.add('a');
         assertTrue(testBag.contains('a'));
     }
 
-    @Test 
+    @Test
     public void testContains() {
         testBag.add('a');
         assertTrue(testBag.contains('a'));
         assertFalse(testBag.contains('d'));
     }
 
-    @Test 
+    @Test
     public void testToArray() {
-        testBag.add('c'); 
+        testBag.add('c');
         testBag.add('b');
         testBag.add('a');
         Character[] expected = {'a', 'b', 'c'};
         assertArrayEquals(expected, testBag.toArray());
     }
 
-    @Test 
+    @Test
     public void testClear() {
         testBag.add('a');
         testBag.add('b');
@@ -73,7 +74,7 @@ public class LinkedBagTest {
         assertEquals(0, testBag.getCurrentSize());
     }
 
-    @Test 
+    @Test
     public void testGetCurrentSize() {
         testBag.add('a');
         testBag.add('b');
@@ -81,7 +82,7 @@ public class LinkedBagTest {
         assertEquals(expected, testBag.getCurrentSize());
     }
 
-    @Test 
+    @Test
     public void testGetFrequencyOf() {
         testBag.add('a');
         testBag.add('a');
@@ -92,7 +93,7 @@ public class LinkedBagTest {
         assertEquals(expected2, testBag.getFrequencyOf('b'));
     }
 
-    @Test 
+    @Test
     public void testIsEmpty() {
         assertTrue(testBag.isEmpty());
         testBag.add('a');
@@ -108,7 +109,7 @@ public class LinkedBagTest {
         assertEquals(null, testBag.search('c'));
     }
 
-    @Test 
+    @Test
     // remove method w/o parameters
     public void testRemove() {
         testBag.add('a');
@@ -117,23 +118,23 @@ public class LinkedBagTest {
         assertFalse(testBag.contains('b'));
     }
 
-    @Test 
+    @Test
     // remove method w/ parameters
     public void testRemove2() {
         testBag.add('a');
         testBag.remove('a');
-        assertFalse(testBag.contains('a')); 
+        assertFalse(testBag.contains('a'));
     }
 
-    @Test 
+    @Test
     public void testToString() {
         testBag.add('b');
         testBag.add('a');
-        String expected = "[a, b]"; 
+        String expected = "[a, b]";
         assertEquals(expected, testBag.toString());
     }
-    
-    @Test 
+
+    @Test
     public void testUnion() {
         testBag.add('a');
         testBag.add('b');
@@ -146,7 +147,7 @@ public class LinkedBagTest {
         assertTrue(outcome.contains('d'));
     }
 
-    @Test 
+    @Test
     public void testDifference() {
         testBag.add('a');
         testBag.add('b');
@@ -160,7 +161,7 @@ public class LinkedBagTest {
         assertFalse(outcome2.contains('b'));
     }
 
-    @Test 
+    @Test
     public void testIntersection() {
         testBag.add('a');
         testBag.add('b');

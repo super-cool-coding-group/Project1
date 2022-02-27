@@ -10,7 +10,8 @@ import org.junit.Test;
  * We have a main method where we run the Union, Intersection, and Difference methods.
  *
  *
- * @author George Matta, Angelica Arteaga
+ * @author George Matta
+ * @author Angelica Arteaga
  * @version 1.2
  */
 public class ArrayBagTest{
