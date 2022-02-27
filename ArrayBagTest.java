@@ -29,7 +29,7 @@ public class ArrayBagTest{
         Character[] testArray = {'d', 'e', 'f'};
         ((ResizeableArrayBag<Character>) testBag).setBag(testArray);
     }
-    
+
     @Test
     public void testGetBag(){
 
@@ -75,7 +75,7 @@ public class ArrayBagTest{
         testBag.add('a');
         testBag.add('b');
         testBag.remove();
-        assertFalse(testBag.contains('b')); 
+        assertFalse(testBag.contains('b'));
         assertTrue(testBag.contains('a'));
     }
 
@@ -125,11 +125,11 @@ public class ArrayBagTest{
 
     }
 
-    @Test 
+    @Test
     public void testToString(){
         testBag.add('a');
         testBag.add('b');
-        String expected = "[a, b]"; 
+        String expected = "[a, b]";
         assertEquals(expected, testBag.toString());
     }
 
@@ -144,7 +144,7 @@ public class ArrayBagTest{
         assertTrue(outcome.contains('b'));
         assertTrue(outcome.contains('c'));
         assertTrue(outcome.contains('d'));
-        //System.out.println(testBag.union(testBag2)); 
+        //System.out.println(testBag.union(testBag2));
     }
 
     @Test
