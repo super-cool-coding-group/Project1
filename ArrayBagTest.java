@@ -29,92 +29,51 @@ public class ArrayBagTest{
     public void testResizeableArrayBag(){
         Character[] testArray = {'a', 'b', 'c'};
         testBag = new ResizeableArrayBag<Character>(testArray);
-        // check for characters 'a', 'b', and 'c'
+        assertTrue(testBag.contains('a'));
+        assertTrue(testBag.contains('b'));
+        assertTrue(testBag.contains('c'));
         int expectedSize = 3;
-        assertEquals(expectedSize, testBag.getNumOfEntries());
+        assertEquals(expectedSize, testBag.getCurrentSize());
     }
 
     /**
-     * Clones a ResizeableArrayBag.
-     * @param bag The Array we are using to create a bag. Takes in ResizeableArrayBag<E>
+     * Creates a new ResizeableArrayBag with the default capacity.
      */
     @Test
     public void testResizeableArrayBag2(){
-        testBag.add('a');
-        testBag.add('b');
-        testBag2 = new ResizeableArrayBag<Character>(testBag);
-        int expectedSize = 2;
-        assertEquals(expectedSize, testBag.getNumOfEntries());
+        testBag = new ResizeableArrayBag<Character>();
+        int expectedCapacity = 10;
+        assertEquals(expectedCapacity, testBag.getNumOfEntries());
     }
 
     /**
-     * Creates a new ResizeableArrayBag if we do not have a starting bag but we have a capacity
-     * @param capacity The capacity of the bag we are creating
-     * @throws IllegalArgumentException Indicates that the capacity is too low (0 or negative capacity).
+     * Creates an array of generics of a variable capacity
+     * @param capacity The maximum capacity of the Array
      */
     @Test
     public void testResizeableArrayBag3(){
 
     }
 
-    /**
-     * Creates a new ResizeableArrayBag if we don't have any starting parameters (we use the default capacity)
-     */
     @Test
-    public void testResizeableArrayBag4(){
-
+    public void testGetCurrentSize() {
+        testBag.add('a');
+        testBag.add('b');
+        int expected = 2;
+        assertEquals(expected, testBag.getCurrentSize());
     }
-    
+
+    @Test
+    public void testIsEmpty() {
+        assertTrue(testBag.isEmpty());
+        testBag.add('a');
+        assertFalse(testBag.isEmpty());
+    }
+     
     @Test
     public void testAdd(){
         testBag.add('a');
         assertTrue(testBag.contains('a'));
-    }
-
-    @Test
-    public void testSetBag(){
-        Character[] testArray = {'d', 'e', 'f'};
-        ((ResizeableArrayBag<Character>) testBag).setBag(testArray);
-    }
-
-    @Test
-    public void testGetBag(){
-
-    }
-
-    @Test
-    public void testGetDefaultCapacity(){
-        int expected = 10;
-        assertEquals(expected, testBag.getDefaultCapacity());
-    }
-
-    @Test
-    public void testGetCapacity(){
-        int expected;
-        assertEquals(expected, testBag.getCapacity());
-    }
-
-    @Test
-    public void testGetNumOfEntries(){
-        testBag.add('a');
-        testBag.add('b');
-        testBag.add('c');
-        int expected = 3;
-        assertEquals(expected, testBag.getNumOfEntries());
-    }
-
-    @Test
-    public void testGetMaxEntries(){
-
-    }
-
-    @Test
-    public void testCalculateNumOfEntries(){
-        testBag.add('a');
-        testBag.add('b');
-        testBag.add('c');
-        int expected = 3;
-        assertEquals(expected, testBag.calculateNumOfEntries());
     }
 
     @Test // A method to remove the last item from a ResizeableArrayBag's bag
@@ -126,17 +85,8 @@ public class ArrayBagTest{
         assertTrue(testBag.contains('a'));
     }
 
-    @Test // A method to remove an item from a ResizeableArrayBag's bag given an index
-    public void testRemove2(){
-        testBag.add('a');
-        testBag.add('b');
-        testBag.remove(1);
-        assertFalse(testBag.contains('b'));
-        assertTrue(testBag.contains('a'));
-    }
-
     @Test // A method to remove a specified item from a ResizeableArrayBag's bag
-    public void testRemove3(){
+    public void testRemove2(){
         testBag.add('a');
         testBag.add('b');
         testBag.remove('b');
@@ -145,17 +95,18 @@ public class ArrayBagTest{
     }
 
     @Test
-    public void testGetIndexOf(){
+    public void testClear(){
         testBag.add('a');
         testBag.add('b');
-        testBag.add('b');
-        int expected = 1;
-        assertEquals(testBag.getIndexOf('b'));
+        testBag.clear();
+        assertEquals(0, testBag.getCurrentSize());
     }
 
     @Test
-    public void testResizeBag(){
-
+    public void testContains() {
+        testBag.add('a');
+        assertTrue(testBag.contains('a'));
+        assertFalse(testBag.contains('d'));
     }
 
     @Test
@@ -165,11 +116,6 @@ public class ArrayBagTest{
         testBag.add('c');
         Character[] expected = {'a', 'b', 'c'};
         assertArrayEquals(expected, testBag.toArray());
-    }
-
-    @Test
-    public void testToSortedArrayList(){
-
     }
 
     @Test

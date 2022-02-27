@@ -51,13 +51,6 @@ public class LinkedBagTest {
     }
 
     @Test
-    public void testContains() {
-        testBag.add('a');
-        assertTrue(testBag.contains('a'));
-        assertFalse(testBag.contains('d'));
-    }
-
-    @Test
     public void testToArray() {
         testBag.add('c');
         testBag.add('b');
@@ -98,15 +91,6 @@ public class LinkedBagTest {
         assertTrue(testBag.isEmpty());
         testBag.add('a');
         assertFalse(testBag.isEmpty());
-    }
-
-    @Test
-    public void testSearch(){
-        testBag.add('a');
-        testBag.add('b');
-        int expected = 1;
-        assertEquals(expected, testBag.search('b'));
-        assertEquals(null, testBag.search('c'));
     }
 
     @Test
