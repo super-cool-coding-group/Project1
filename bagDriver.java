@@ -11,7 +11,6 @@ public class bagDriver {
         ResizeableArrayBag<String> bagOne = new ResizeableArrayBag<String>(arrayOne); // Our first bag
         ResizeableArrayBag<String> bagTwo = new ResizeableArrayBag<String>(arrayTwo); // Our second bag
 
-        checkStuff(bagOne);
 
         // Order is unimportant
         // Union
@@ -36,7 +35,7 @@ public class bagDriver {
         LinkedBag<String> linkedBagOne = new LinkedBag<String>(listOne); // Our first bag
         LinkedBag<String> linkedBagTwo = new LinkedBag<String>(listTwo); // Our second bag
 
-        System.out.println("Union");
+        System.out.println("\nUnion");
         System.out.println(linkedBagOne.union(linkedBagTwo)); // a b b b c d e
         System.out.println(linkedBagTwo.union(linkedBagOne)); // a b b b c d e
 
@@ -52,20 +51,4 @@ public class bagDriver {
 
     }
 
-    public static void checkStuff(ResizeableArrayBag<String> bag) {
-        System.out.println(bag);
-        System.out.println(bag.getNumOfEntries());
-        bag.add("1");
-        System.out.println(bag);
-        System.out.println(bag.getNumOfEntries());
-        bag.add("1");
-        System.out.println(bag);
-        System.out.println(bag.getNumOfEntries());
-        bag.remove("1");
-        System.out.println(bag);
-        System.out.println(bag.getNumOfEntries());
-        bag.remove("1");
-        System.out.println(bag);
-        System.out.println(bag.getNumOfEntries());
-    }
 }
