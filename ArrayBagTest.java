@@ -17,7 +17,53 @@ public class ArrayBagTest{
 
     BagInterface<Character> testBag = new ResizeableArrayBag<Character>();
     BagInterface<Character> testBag2 = new ResizeableArrayBag<Character>();
+    BagInterface<Character> outcome;
+    BagInterface<Character> outcome2;
 
+    /**
+     * Creates a new ResizeableArrayBag given an Array.
+     * @param bag The Array we are using to create a bag.
+     */
+    @Test
+    public void testResizeableArrayBag(){
+        Character[] testArray = {'a', 'b', 'c'};
+        testBag = new ResizeableArrayBag<Character>(testArray);
+        // check for characters 'a', 'b', and 'c'
+        int expectedSize = 3;
+        assertEquals(expectedSize, testBag.getNumOfEntries());
+    }
+
+    /**
+     * Clones a ResizeableArrayBag.
+     * @param bag The Array we are using to create a bag. Takes in ResizeableArrayBag<E>
+     */
+    @Test
+    public void testResizeableArrayBag2(){
+        testBag.add('a');
+        testBag.add('b');
+        testBag2 = new ResizeableArrayBag<Character>(testBag);
+        int expectedSize = 2;
+        assertEquals(expectedSize, testBag.getNumOfEntries());
+    }
+
+    /**
+     * Creates a new ResizeableArrayBag if we do not have a starting bag but we have a capacity
+     * @param capacity The capacity of the bag we are creating
+     * @throws IllegalArgumentException Indicates that the capacity is too low (0 or negative capacity).
+     */
+    @Test
+    public void testResizeableArrayBag3(){
+
+    }
+
+    /**
+     * Creates a new ResizeableArrayBag if we don't have any starting parameters (we use the default capacity)
+     */
+    @Test
+    public void testResizeableArrayBag4(){
+
+    }
+    
     @Test
     public void testAdd(){
         testBag.add('a');
@@ -139,7 +185,7 @@ public class ArrayBagTest{
         testBag.add('b');
         testBag2.add('c');
         testBag2.add('d');
-        BagInterface<Character> outcome = testBag.union(testBag2);
+       outcome = testBag.union(testBag2);
         assertTrue(outcome.contains('a'));
         assertTrue(outcome.contains('b'));
         assertTrue(outcome.contains('c'));
@@ -153,8 +199,8 @@ public class ArrayBagTest{
         testBag.add('b');
         testBag2.add('b');
         testBag2.add('c');
-        BagInterface<Character> outcome = testBag.difference(testBag2);
-        BagInterface<Character> outcome2 = testBag2.difference(testBag);
+        outcome = testBag.difference(testBag2);
+        outcome2 = testBag2.difference(testBag);
         assertTrue(outcome.contains('a'));
         assertTrue(outcome2.contains('c'));
         assertFalse(outcome.contains('b'));
@@ -169,7 +215,7 @@ public class ArrayBagTest{
         testBag.add('b');
         testBag2.add('b');
         testBag2.add('c');
-        BagInterface<Character> outcome = testBag.intersection(testBag2);
+        outcome = testBag.intersection(testBag2);
         assertTrue(outcome.contains('b'));
         assertFalse(outcome.contains('a'));
         //System.out.println(testBag.intersection(testBag2));
