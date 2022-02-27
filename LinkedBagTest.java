@@ -2,18 +2,46 @@ import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
+import java.util.ArrayList;
 import org.junit.Test;
 /**
  * This is the where we test the functionality of our LinkedBag class.
  * We have a main method where we run the Union, Intersection, and Difference methods.
  * @author Angelica Arteaga, Pierlorenzo Peruzzo
- * @version 1.2
+ * @version 2.0
  */
 
 public class LinkedBagTest {
 
     BagInterface<Character> testBag = new LinkedBag<Character>();
     BagInterface<Character> testBag2 = new LinkedBag<Character>();
+    BagInterface<Character> outcome;
+    BagInterface<Character> outcome2;
+
+    @Test 
+    //initialized with the contents of another bag
+    public void testLinkedBag(){
+        testBag.add('a');
+        testBag.add('b');
+        testBag2 = new LinkedBag<Character>(testBag);
+        assertTrue(testBag2.contains('a'));
+        assertTrue(testBag2.contains('b'));
+        int expectedSize = 2;
+        assertEquals(expectedSize, testBag2.getCurrentSize());
+    }
+
+    @Test 
+    // initialized with the contents of an ArrayList
+    public void testLinkedBag2(){
+        ArrayList<Character> testArray = new ArrayList<Character>();
+        testArray.add('a');
+        testArray.add('b');
+        testBag = new LinkedBag<Character>(testArray);
+        assertTrue(testBag.contains('a'));
+        assertTrue(testBag.contains('b'));
+        int expectedSize = 2;
+        assertEquals(expectedSize, testBag.getCurrentSize());
+    }
 
     @Test 
     public void testAdd() {
@@ -71,6 +99,15 @@ public class LinkedBagTest {
         assertFalse(testBag.isEmpty());
     }
 
+    @Test
+    public void testSearch(){
+        testBag.add('a');
+        testBag.add('b');
+        int expected = 1;
+        assertEquals(expected, testBag.search('b'));
+        assertEquals(null, testBag.search('c'));
+    }
+
     @Test 
     // remove method w/o parameters
     public void testRemove() {
@@ -102,7 +139,7 @@ public class LinkedBagTest {
         testBag.add('b');
         testBag2.add('c');
         testBag2.add('d');
-        BagInterface<Character> outcome = testBag.union(testBag2);
+        outcome = testBag.union(testBag2);
         assertTrue(outcome.contains('a'));
         assertTrue(outcome.contains('b'));
         assertTrue(outcome.contains('c'));
@@ -115,8 +152,8 @@ public class LinkedBagTest {
         testBag.add('b');
         testBag2.add('b');
         testBag2.add('c');
-        BagInterface<Character> outcome = testBag.difference(testBag2);
-        BagInterface<Character> outcome2 = testBag2.difference(testBag);
+        outcome = testBag.difference(testBag2);
+        outcome2 = testBag2.difference(testBag);
         assertTrue(outcome.contains('a'));
         assertTrue(outcome2.contains('c'));
         assertFalse(outcome.contains('b'));
@@ -129,7 +166,7 @@ public class LinkedBagTest {
         testBag.add('b');
         testBag2.add('b');
         testBag2.add('c');
-        BagInterface<Character> outcome = testBag.intersection(testBag2);
+        outcome = testBag.intersection(testBag2);
         assertTrue(outcome.contains('b'));
         assertFalse(outcome.contains('a'));
         assertFalse(outcome.contains('c'));
