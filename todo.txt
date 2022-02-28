@@ -1,3 +1,0 @@
-//Document the methods in the interface rather than the class
-//Migrate to generics instead of Strings
-Figure out how to calculate time complexity
