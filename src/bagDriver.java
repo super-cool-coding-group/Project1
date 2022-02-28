@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @author Pierlorenzo Peruzzo
  * @version 1.2
  */
-public class BagDriver {
+public class BagDriver{
 
     public static void main(String[] args) {
 
