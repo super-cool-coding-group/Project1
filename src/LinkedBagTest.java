@@ -4,11 +4,12 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 import java.util.ArrayList;
 import org.junit.Test;
+
 /**
  * This is the where we test the functionality of our LinkedBag class.
  * We have a main method where we run the Union, Intersection, and Difference methods.
- * @author Pierlorenzo Peruzzo
  * @author Angelica Arteaga
+ * @author Pierlorenzo Peruzzo
  * @version 2.0
  */
 
