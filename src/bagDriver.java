@@ -2,14 +2,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * 
+ *
  * This is the bagDriver class. We use this class to demo some typical usage of union, intersection, and difference in BagInterface.
  *
  * @author George Matta
  * @author Pierlorenzo Peruzzo
  * @version 1.2
  */
-public class bagDriver {
+public class BagDriver {
 
     public static void main(String[] args) {
 
