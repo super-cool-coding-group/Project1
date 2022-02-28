@@ -22,8 +22,8 @@ public class ArrayBagTest{
     BagInterface<Character> outcome2;
 
     /**
-     * Creates a new ResizeableArrayBag given an Array.
-     * @param bag The Array we are using to create a bag.
+     * Creates a new ResizeableArrayBag given an array.
+     * @param array The array we are creating a RAB from
      */
     @Test
     public void testResizeableArrayBag(){
@@ -34,25 +34,6 @@ public class ArrayBagTest{
         assertTrue(testBag.contains('c'));
         int expectedSize = 3;
         assertEquals(expectedSize, testBag.getCurrentSize());
-    }
-
-    /**
-     * Creates a new ResizeableArrayBag with the default capacity.
-     */
-    @Test
-    public void testResizeableArrayBag2(){
-        testBag = new ResizeableArrayBag<Character>();
-        int expectedCapacity = 10;
-        assertEquals(expectedCapacity, testBag.getNumOfEntries());
-    }
-
-    /**
-     * Creates an array of generics of a variable capacity
-     * @param capacity The maximum capacity of the Array
-     */
-    @Test
-    public void testResizeableArrayBag3(){
-
     }
 
     @Test
@@ -103,6 +84,17 @@ public class ArrayBagTest{
     }
 
     @Test
+    public void testGetFrequencyOf() {
+        testBag.add('a');
+        testBag.add('a');
+        testBag.add('b');
+        int expected = 2;
+        assertEquals(expected, testBag.getFrequencyOf('a'));
+        int expected2 = 1;
+        assertEquals(expected2, testBag.getFrequencyOf('b'));
+    }
+
+    @Test
     public void testContains() {
         testBag.add('a');
         assertTrue(testBag.contains('a'));
@@ -137,7 +129,6 @@ public class ArrayBagTest{
         assertTrue(outcome.contains('b'));
         assertTrue(outcome.contains('c'));
         assertTrue(outcome.contains('d'));
-        //System.out.println(testBag.union(testBag2));
     }
 
     @Test
@@ -152,8 +143,6 @@ public class ArrayBagTest{
         assertTrue(outcome2.contains('c'));
         assertFalse(outcome.contains('b'));
         assertFalse(outcome2.contains('b'));
-        //System.out.println(testBag.difference(testBag2));
-        //System.out.println(testBag2.difference(testBag));
     }
 
     @Test
@@ -165,6 +154,5 @@ public class ArrayBagTest{
         outcome = testBag.intersection(testBag2);
         assertTrue(outcome.contains('b'));
         assertFalse(outcome.contains('a'));
-        //System.out.println(testBag.intersection(testBag2));
     }
 }
