@@ -21,10 +21,6 @@ public class ArrayBagTest{
     BagInterface<Character> outcome;
     BagInterface<Character> outcome2;
 
-    /**
-     * Creates a new ResizeableArrayBag given an array.
-     * @param array The array we are creating a RAB from
-     */
     @Test
     public void testResizeableArrayBag(){
         Character[] testArray = {'a', 'b', 'c'};
@@ -50,7 +46,7 @@ public class ArrayBagTest{
         testBag.add('a');
         assertFalse(testBag.isEmpty());
     }
-     
+
     @Test
     public void testAdd(){
         testBag.add('a');
