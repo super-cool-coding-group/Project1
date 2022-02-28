@@ -6,7 +6,7 @@ Interfaces and implementations for the Bag ADT. Uses a ResizeableArray and a Lin
   - Created the BagInterface and ResizeableArrayBag classes. Contributed to the BagDriver. Generated JavaDocs (but only wrote the documentation for ResizeableArrayBag).  
 - Pierlorenzo Peruzzo  
   - Refactored the BagInterface class and created the LinkedBag class. Contributed to the BagDriver. Wrote JavaDocs for LinkedBag and BagInterface.  
-- Angelica A  
+- Angelica Arteaga  
   - Created the ArrayBagTest and LinkedBagTest. Calculated the Time Complexity and created the efficiency excel.  
   
 ## Extra Features  
