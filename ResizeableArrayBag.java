@@ -133,7 +133,7 @@ public class ResizeableArrayBag<E> implements BagInterface<E>{
      * A method to throw an error if the capacity of the bag is too large or too small
      */
     private void checkCapacity(int capacity){
-        String errorMessage = "Attempted to create a bag with a capcity (" + capacity + ") which is too ";
+        String errorMessage = "Attempted to create a bag with a capacity (" + capacity + ") which is too ";
         if (capacity >= MAX_CAPACITY){
             errorMessage += "large";
             throw new IllegalStateException(errorMessage);
