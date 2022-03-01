@@ -14,7 +14,7 @@ Interfaces and implementations for the Bag ADT. Uses a ResizeableArray and a Lin
 - Super cool code courtesy of the Super Cool Coding Group  
 
 ## Video Link 
-https://www.youtube.com/watch?v=jpVEFlpC4Nc
+- https://www.youtube.com/watch?v=jpVEFlpC4Nc
 
 ## JavaDoc Index Link 
 - https://github.com/super-cool-coding-group/Project1/blob/main/javadoc/index.html  
